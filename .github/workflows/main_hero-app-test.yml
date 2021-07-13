@@ -51,6 +51,5 @@ jobs:
       uses: azure/webapps-deploy@v2
       with:
         app-name: 'hero-app-test'
-        slot-name: 'production'
         publish-profile: ${{ secrets.AzureAppService_PublishProfile_6bb2b966e7804f53add2df93c6c7698b }}
         package: .
