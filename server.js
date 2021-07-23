@@ -8,8 +8,11 @@ const PORT = process.env.PORT || 3000;
 const API_SERVICE_URL = "https://jsonplaceholder.typicode.com";
 
 app.use(express.static(__dirname + '/dist/angular-tour-of-heroes'));
+app.set('view engine', 'pug');
 
-app.get('/', (req, res) => res.sendFile(path.join(__dirname)));
+app.get('/', (req, res) => {
+    res.sendFile('index.html',{root:__dirname})
+});
 
 // Info GET endpoint
 app.get('/info', (req, res, next) => {
