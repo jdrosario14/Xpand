@@ -5,7 +5,7 @@ const path = require('path');
 const app = express();
 
 const PORT = process.env.PORT || 3000;
-const API_SERVICE_URL = "https://jsonplaceholder.typicode.com";
+const API_SERVICE_URL = "https://abola.pt";
 
 app.use(express.static(__dirname + '/dist/angular-tour-of-heroes'));
 app.set('view engine', 'pug');
@@ -20,11 +20,11 @@ app.get('/info', (req, res, next) => {
  });
 
  // Proxy endpoints
-app.use('/json_placeholder', createProxyMiddleware({
+app.use('/api', createProxyMiddleware({
     target: API_SERVICE_URL,
     changeOrigin: true,
     pathRewrite: {
-        [`^/json_placeholder`]: '',
+        [`^/api`]: '',
     },
  }));
 
