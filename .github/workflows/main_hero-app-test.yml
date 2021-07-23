@@ -23,7 +23,7 @@ jobs:
     - name: npm install, build, and test
       run: |
         npm install
-        npm run build --prod
+        npm run build --if-present
       working-directory: .
 
     - name: 'Deploy to Azure Web App'
@@ -31,4 +31,4 @@ jobs:
       with:
         app-name: 'hero-app-test'
         publish-profile: ${{ secrets.AzureAppService_PublishProfile_c22264e8c6a34df783d43ff3a2a9e229 }}
-        package: ./dist/angular-tour-of-heroes
+        package: .
