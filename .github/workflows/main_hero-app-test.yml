@@ -24,11 +24,11 @@ jobs:
       run: |
         npm install
         npm run build --if-present
-      working-directory: '.'
+      working-directory: .
 
     - name: 'Deploy to Azure Web App'
       uses: azure/webapps-deploy@v2
       with:
         app-name: 'hero-app-test'
         publish-profile: ${{ secrets.AzureAppService_PublishProfile_c22264e8c6a34df783d43ff3a2a9e229 }}
-        package: '.'
+        package: .
