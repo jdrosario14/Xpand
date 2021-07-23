@@ -4,8 +4,7 @@ const path = require('path');
 
 const app = express();
 
-const PORT = 3000;
-const HOST = "localhost";
+const PORT = process.env.PORT || 3000;
 const API_SERVICE_URL = "https://jsonplaceholder.typicode.com";
 
 app.use(express.static(__dirname + '/dist/angular-tour-of-heroes'));
@@ -26,6 +25,6 @@ app.use('/json_placeholder', createProxyMiddleware({
     },
  }));
 
- app.listen(PORT, HOST, () => {
-    console.log(`Starting Proxy at ${HOST}:${PORT}`);
+ app.listen(PORT, () => {
+    console.log('Server is running...');
  });
